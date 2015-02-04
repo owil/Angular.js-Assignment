@@ -1,0 +1,23 @@
+<!doctype html>
+<html ng-app="gemStore">
+<head>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<title>Assignment 5 Level5</title>
+	<script type="text/javascript" src="js/angular.min.js"></script>
+	<script type="text/javascript" src="app.js"></script>
+</head>
+<body ng-controller="StoreController as store">
+	<ul class="list-group">
+		<li class="list-group-item" ng-repeat="product in store.products">
+			<h3>
+				{{product.name}}
+				<em class="pull-right">${{product.price}}</em>
+			</h3>
+			<section ng-controller="PanelController as panel">
+
+			</section>
+		</li>
+	</ul>
+</body>
+</html>

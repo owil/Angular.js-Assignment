@@ -15,7 +15,7 @@
 				<blockquote ng-repeat="review in product.reviews">
 					<b>Stars: {{reviewCtrl.review.stars}}</b>
 					{{reviewCtrl.review.body}}
-					<cite>by: {{reviewCtrl.review.author}}</cite>
+					<cite class="clearfix">by: {{review.author}} on {{review.createdOn | date}}</cite>
 				</blockquote>
 				<select ng-model="reviewCtrl.review.stars" required>
 					<option value="1">1 star</option>
@@ -114,7 +114,7 @@
               <blockquote >
                 <strong>{{reviewCtrl.review.stars}} Stars</strong>
                 {{reviewCtrl.review.body}}
-                <cite class="clearfix">—{{reviewCtrl.review.author}}</cite>
+                <cite class="clearfix">—{{review.author}} on {{review.createdOn | date}}</cite>
               </blockquote>
 
               <!--  Review Form -->
