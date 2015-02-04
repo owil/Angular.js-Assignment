@@ -1,0 +1,28 @@
+<!doctype html>
+<html ng-app="gemStore">
+<head>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<title>Assignment 5 Index</title>
+	<script type="text/javascript" src="js/angular.min.js"></script>
+	<script type="text/javascript" src="app.js"></script>
+</head>
+<body ng-controller="StoreController as store">
+	<h1>{{"Hello, "+"Angular!"}}</h1>
+	<p>I am {{4+6}}</p>
+	<p>{{"hello"+"you"}}</p>
+
+	<div class="product row" ng-hide="store.product.soldOut" ng-repeat="product in store.products">
+		<h3>
+        {{store.product.name}}
+        <em class="pull-right">${{store.product.price}}</em>
+      	</h3>
+      	<button ng-show="store.product.canPurchase">Add to Cart</button>
+	</div>
+	<br>
+	<a href="app.js">App.js</a>
+	<br>
+	<a href="level2.html">Level 2</a>
+	<br>
+	<a href="level3.html">Level 3</a>
+</body>
+</html>
