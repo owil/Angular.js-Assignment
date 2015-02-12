@@ -10,69 +10,90 @@
 	
 	<div class="container text-center" ng-controller="StoreController as store">
 
-		<!--  Product Container  -->
-	    <div class="list-group-item" ng-repeat="product in store.products">
-	      <h3>{{product.name}} <em class="pull-right">{{product.price | currency}}</em></h3>
+		<div class="row">
 
-	      <!-- Image Gallery  -->
-	      <div class="gallery" ng-show="store.product.images.length">
-	        <div class="img-wrap">
-	          <img ng-src="{{product.images[0]}}" />
-	        </div>
-	        <ul class="img-thumbnails clearfix">
-	        	<li class="small-image pull-left thumbnail" ng-repeat="image in product.images">
-	            <img ng-src="{{image}}"/>
-	          </li>
-	        </ul>
-	      </div>
-	    </div>
+			<div class="col-sm-6">
+				<h2>Product</h2>
+				<!--  Product Container  -->
+				<div class="list-group-item" ng-repeat="product in store.products">
+				  <h3>{{product.name}} <em class="pull-right">{{product.price | currency}}</em></h3>
 
-	    <section ng-controller="PanelController as panel">
-	    	<ul class="nav nav-pills">
-	    		<li ng-class="{active:panel.isSelected(1)}"><a href="" ng-click="panel.selectTab(1)">Description</a></li>
-	    		<li ng-class="{active:panel.isSelected(2)}"><a href="" ng-click="panel.selectTab(2)">Specifications</a></li>
-	    		<li ng-class="{active:panel.isSelected(3)}"><a href="" ng-click="panel.selectTab(3)">Reviews</a></li>
-	    	</ul>
-	    	{{tab}}
-	    	<div class="panel" ng-show="panel.isSelected(1)">
-	    		<h4>Description</h4>
-	    		<p>{{product.description}}</p>
-	    	</div>
-	    </section>
+				  <!-- Image Gallery  -->
+				  <div class="gallery" ng-show="store.product.images.length">
+				    <div class="img-wrap">
+				      <img ng-src="{{store.product.images[0]}}" />
+				    </div>
+				    <ul class="img-thumbnails clearfix">
+				    	<li class="small-image pull-left thumbnail" ng-repeat="image in product.images">
+				        <img ng-src="{{store.image}}"/>
+				      </li>
+				    </ul>
+				  </div>
+				</div>
+			</div>
 
-	    <section class="tab" ng-controller="TabController as tab">
-	        <ul class="nav nav-pills">
-	          <li ng-class="{active:tab.isSet(1)}">
-	            <a href ng-click="tab.setTab(1)">Description</a></li>
-	          <li ng-class="{active:tab.isSet(2)}">
-	            <a href ng-click="tab.setTab(2)">Specs</a></li>
-	          <li ng-class="{active:tab.isSet(3)}">
-	            <a href ng-click="tab.setTab(3)">Reviews</a></li>
-	        </ul>
-	        <div ng-show="tab.isSet(1)">
-	          <h4>Description</h4>
-	          <blockquote>{{product.description}}</blockquote>
-	        </div>
-	        <div ng-show="tab.isSet(2)">
-	          <h4>Specs</h4>
-	          <blockquote>Shine: {{product.shine}}</blockquote>
-	        </div>
-	        <div ng-show="tab.isSet(3)">
-	          <h4>Reviews</h4>
-	          <blockquote></blockquote>
-	        </div>
-	      </section>
+			<div class="col-sm-6">
+				<h2>Panel</h2>
+				<section ng-controller="PanelController as panel">
+					<ul class="nav nav-pills">
+						<li ng-class="{active:panel.isSelected(1)}"><a href="" ng-click="panel.selectTab(1)">Description</a></li>
+						<li ng-class="{active:panel.isSelected(2)}"><a href="" ng-click="panel.selectTab(2)">Specifications</a></li>
+						<li ng-class="{active:panel.isSelected(3)}"><a href="" ng-click="panel.selectTab(3)">Reviews</a></li>
+					</ul>
+					{{tab}}
+					<div class="panel" ng-show="panel.isSelected(1)">
+						<h4>Description</h4>
+						<p>{{product.description}}</p>
+					</div>
+				</section>
+			</div>
+		</div><!-- End row -->
 
-	      <!-- Image Gallery  -->
-	      <div class='gallery' ng-show="product.images.length" ng-controller="GalleryController as gallery">
-	        <img ng-src="{{product.images[gallery.current]}}" />
-	        <ul class="list-inline thumbs">
-	          <li class="thumbnail" ng-repeat="image in product.images">
-	            <img ng-src="{{image}}" />
-	          </li>
-	        </ul>
-	      </div>
+		<div class="row">
 
-	</div>
+			<div class="col-sm-6">
+				<h2>Tab Controller</h2>
+				<section class="tab" ng-controller="TabController as tab">
+					<ul class="nav nav-pills">
+						<li ng-class="{active:tab.isSet(1)}">
+							<a href ng-click="tab.setTab(1)">Description</a></li>
+						<li ng-class="{active:tab.isSet(2)}">
+							<a href ng-click="tab.setTab(2)">Specs</a></li>
+						<li ng-class="{active:tab.isSet(3)}">
+							<a href ng-click="tab.setTab(3)">Reviews</a></li>
+					</ul>
+
+					<div ng-show="tab.isSet(1)">
+						<h4>Description</h4>
+						<blockquote>{{product.description}}</blockquote>
+					</div>
+
+					<div ng-show="tab.isSet(2)">
+						<h4>Specs</h4>
+						<blockquote>Shine: {{product.shine}}</blockquote>
+					</div>
+
+					<div ng-show="tab.isSet(3)">
+						<h4>Reviews</h4>
+						<blockquote></blockquote>
+					</div>
+				</section>
+			</div>
+
+			<div class="col-sm-6">
+				<h2>Gallery</h2>
+				<!-- Image Gallery  -->
+				<div class='gallery' ng-show="product.images.length" ng-controller="GalleryController as gallery">
+					<img ng-src="{{product.images[gallery.current]}}" />
+					<ul class="list-inline thumbs">
+						<li class="thumbnail" ng-repeat="image in product.images">
+							<img ng-src="{{image}}" />
+						</li>
+					</ul>
+				</div>
+			</div>
+
+		</div><!-- End row -->
+	</div><!-- End container -->
 </body>
 </html>

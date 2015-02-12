@@ -2,16 +2,7 @@
 	var app = angular.module('gemStore',[]);
 
 	app.controller('StoreController',function(){
-		this.products = [
-		{
-			gems,
-			reviews: [
-			{
-				stars:5,
-				body:"I love this product!",
-				author:"joe@thomas.com"
-			}]
-		}];
+		this.products = gems;
 	});
 
 	app.controller("PanelController", function(){
@@ -44,7 +35,6 @@
 	});
 
 	app.controller('ReviewController',function(){
-		this.review = {};
 
 		this.addReview =function(product){
 			this.review.createdOn=Date.now();
@@ -62,21 +52,32 @@
 
 	var gems = [
 		{
-			name: 'Azurite',
-			price:2.95,
-			description: '. . .',
-			canPurchase: false,
-			soldOut:true,
-			shine: 8,
-			rarity: 6,
-			color:'#CCC',
-			faces: 14,
-			images: [
+			"name": 'Azurite',
+			"price": 2.95,
+			"description": '. . .',
+			"canPurchase": true,
+			"soldOut": false,
+			"shine": 8,
+			"rarity": 6,
+			"color":'#CCC',
+			"faces": 14,
+			"images": [
 				{
-					full: "images/gem-01.gif",
-					"images/gem-03.gif",
-					"images/gem-04.gif"
-				}],
+					"full": "img1.jpg",
+					"" : "img2.jpg"
+				},
+				{
+					"full": "img3.jpg",
+					"" : "img4.jpg"
+				}
+			],
+			"reviews": [
+				{
+					"stars": 5,
+					"body": "I love this product!",
+					"author": "joe@thomas.com"
+				}
+			]
 		},
 		{
 			name: 'Bloodstone',
@@ -88,6 +89,24 @@
 			rarity: 6,
 			color: '#EEE',
 			faces: 12,
+			"images": [
+				{
+					"full": "img1.jpg",
+					"" : "img2.jpg"
+				},
+				{
+					"full": "img3.jpg",
+					"" : "img4.jpg"
+				}
+			],
+			"reviews": [
+				{
+					"stars": 3,
+					"body": "It's an okay product.",
+					"author": "joe@thomas.com",
+					"createdOn": "Jan-3-2014"
+				}
+			]
 		},
 		{
 			name: 'Zircon',
@@ -95,5 +114,17 @@
 			description: '. . .',
 			canPurchase: true,
 			soldOut:false,
+			shine: 2,
+			rarity: 4,
+			color: '#ECE',
+			faces: 7,
+			"images": [],
+			"reviews": [
+				{
+					"stars": 1,
+					"body": "I want my money back!",
+					"author": "joe@thomas.com"
+				}
+			]
 		}
 	];
