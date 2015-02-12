@@ -9,26 +9,49 @@
 	<script type="text/javascript" src="js/angular.min.js"></script>
 	<script type="text/javascript" src="js/app.js"></script>
 	
-	<ul class="list-group">
-		<li class="list-group-item" ng-repeat="product in store.products">
-			<h3 ng-include="'product-title.html'"></h3>
-			<section ng-controller="PanelController as panel">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12 text-center">
+				<h1>Level 4, Assignment 5</h1>
+			</div>
+		</div><!-- End row-->
 
-			</section>
-			<product-title></product-title>
-		</li>
-	</ul>
+		<div class="row">
+			<div class="col-sm-12 text-center">
+				<ul class="list-group">
+					<li class="list-group-item" ng-repeat="product in store.products">
+						<h3 ng-include="'product-title.html'"></h3>
+						<section ng-controller="PanelController as panel">
+							{{product.name}}<br>
+							{{product.description}}<br>
+							{{product.price | currency}}
+						</section>
+						<product-title></product-title>
+					</li>
+				</ul>
+			</div>
+		</div><!-- End row-->
 
-	<aside class="col-sm-3">
-		<book-cover></book-cover>
-		<h4><book-rating></book-rating></h4>
-	</aside>
+		<div class="row">
+			<aside class="col-sm-3">
+				<book-cover></book-cover>
+				<h4><book-rating></book-rating></h4>
+			</aside>
 
-	<div class="col-sm-9">
-		<h3><book-title></book-title></h3>
-		<book-authors></book-authors>
-		<book-review-text></book-review-text>
-		<book-genres></book-genres>
-	</div>
+			<div class="col-sm-9">
+				<h3><book-title></book-title></h3>
+				<book-authors></book-authors>
+				<book-review-text></book-review-text>
+				<book-genres></book-genres>
+			</div>
+		</div><!-- End row -->
+
+		<div class="row">
+			<div class="col-sm-12 text-center">
+				<a href="index.html" class="btn btn-success">Back to Index</a>
+			</div>
+		</div><!-- End row-->
+
+	</div><!-- End container -->
 </body>
 </html>

@@ -9,28 +9,39 @@
 	<script type="text/javascript" src="js/angular.min.js"></script>
 	<script type="text/javascript" src="js/app.js"></script>
 
-	<div class="container text-center">
-		<h1>{{ "Hello, " + "Angular!" }}</h1>
-		<p>I am {{ 4 + 6 }}</p>
-		<p>{{"hello "+"you"}}</p>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12 text-center">
+				<h1>{{ "Hello, " + "Angular!" }}</h1>
+				<p>I am {{ 4 + 6 }}</p>
+				<p>{{"hello "+"you"}}</p>
+			</div>
+		</div><!-- End row-->
+		
+		<div class="row">
+			<div class="col-sm-6">
+				<div class="product row" ng-hide="product.soldOut" ng-repeat="product in store.products">
+					<h3>
+				    {{product.name}}
+				    <em class="pull-right">${{product.price}}</em>
+				  	</h3>
+				  	<button ng-show="product.canPurchase" class="btn btn-default">Add to Cart</button>
+				</div>
+			</div>
 
-		<div class="product row" ng-hide="product.soldOut" ng-repeat="product in store.products">
-			<h3>
-	        {{product.name}}
-	        <em class="pull-right">${{product.price}}</em>
-	      	</h3>
-	      	<button ng-show="product.canPurchase">Add to Cart</button>
-		</div>
-		<br>
-		<a href="js/app.js">App.js</a>
-		<br>
-		<a href="level2.html">Level 2</a>
-		<br>
-		<a href="level3.html">Level 3</a>
-		<br>
-		<a href="level4.html">Level 4</a>
-		<br>
-		<a href="level5.html">Level 5</a>
-	</div>
+			<div class="col-sm-6  text-center">
+				<h2>Navigation</h2>
+				<a href="js/app.js" class="btn btn-info navLinks">App.js</a>
+				<br>
+				<a href="level2.html" class="btn btn-default navLinks">Level 2</a>
+				<br>
+				<a href="level3.html" class="btn btn-default navLinks">Level 3</a>
+				<br>
+				<a href="level4.html" class="btn btn-default navLinks">Level 4</a>
+				<br>
+				<a href="level5.html" class="btn btn-default navLinks">Level 5</a>
+			</div>
+		</div><!-- End row-->
+	</div><!-- End container-->
 </body>
 </html>
